@@ -1,0 +1,12 @@
+@import '../../../assets/scss/colors';
+
+.notificationsForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    margin: 0 auto;
+};
+.buttonGlobNot {
+    background-color: $color-primary !important;
+}

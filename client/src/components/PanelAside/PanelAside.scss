@@ -1,0 +1,51 @@
+@import '../../assets/scss/colors';
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+.panelAside {
+    background-color: $color-white;
+    border-radius: 12px;
+    padding: 6px;
+    font-size: 19px;
+    height: 100%;
+}
+
+.panelAside li a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    color: black;
+}
+
+.panelAside li a:hover {
+    background-color: $color-background;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.panelAside li a {
+    width: 100%;
+    color: $color-black;
+}
+
+.panelAside svg {
+    width: 30px;
+    height: 30px;
+    color: $color-primary;
+}
+
+.panelAside .active {
+    background-color: $color-background;
+    border-radius: 12px;
+}
+
+.adminControllers {
+    display: flex;
+}
+
+.oneControl {
+    min-width: 198px;
+}

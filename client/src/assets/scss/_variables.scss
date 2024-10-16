@@ -1,0 +1,35 @@
+@mixin card-styles {
+  height: 360px;
+  padding: 5px;
+  border-radius: 12px !important;
+  margin: 30px;
+  box-shadow: 2px 0px 20px $color-grey !important;
+  transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+  cursor: pointer;
+}
+
+@mixin card-hover-effect {
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #175ba932;
+  }
+}
+
+@mixin card-title-styles {
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  font-weight: 500 !important;
+  text-align: center !important;
+  height: 100px !important;
+  padding-bottom: 5px !important;
+  border-bottom: 2px solid $color-grey;
+}
+
+@mixin card-description-styles {
+  color: $color-secondary !important;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px !important;
+  text-align: justify !important;
+  padding-top: 10px !important;
+}

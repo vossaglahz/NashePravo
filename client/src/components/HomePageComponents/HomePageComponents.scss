@@ -1,0 +1,126 @@
+@import '../../assets/scss/colors';
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+.stack {
+    margin: 0 auto !important;
+}
+
+.block-box {
+    text-align: center;
+}
+
+.block-cards {
+    margin-top: 55px;
+    align-items: center;
+    width: '100%';
+}
+
+.for-who-page-cards {
+    display: flex;
+    justify-content: center;
+}
+.slick-next:before,
+.slick-prev:before {
+    color: $color-primary;
+    font-size: 25px;
+}
+
+.css-nxgrrd-MuiStack-root {
+    margin-bottom: 140px !important;
+}
+
+.title {
+    font-family: "Roboto", sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    color: $color-primary;
+    margin: 40px 20px;
+}
+
+.scrolling-text {
+    background-color: $color-primary-lower;
+    color: $color-white;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: 2px 0px 20px gray;
+    width: 100%;
+    font-size: 26px;
+    padding: 10px;
+    margin: 70px 0;
+}
+
+.scrolling-text p {
+    display: inline-block;
+    animation: scroll 105s linear infinite;
+    animation-delay: 0s;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 950px) {
+
+    .for-who-page-cards {
+        flex-direction: column;
+    }
+    .card-component {
+        max-height: 320px;
+        max-width: 260px;
+        margin-bottom: 30px;
+    }
+    .block-cards {
+        width: 650px;
+    }
+    .stack {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-component {
+        max-height: 260px;
+        max-width: 260px;
+        margin-bottom: 30px;
+    }
+
+    .card-component-title {
+        font-size: 20px !important;
+        height: 80px !important;
+    }
+
+    .card-component-description {
+        font-size: 13px !important;
+        padding-top: 6px !important;
+    }
+
+    .block-cards {
+        width: 70%;
+    }
+    .title {
+        font-size: 25px;
+        margin: 20px 10px;
+    }
+    .scrolling-text {
+        font-size: 16px;
+        padding: 6px;
+        margin: 50px 0;
+    }
+    .stack {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

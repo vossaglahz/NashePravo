@@ -1,0 +1,122 @@
+@import '../../assets/scss/colors';
+
+.layoutWrapper {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: 20px 0;
+    box-shadow: 0px 20px 15px rgba(115, 115, 115, 0.2);
+}
+
+.img-lawyer {
+    max-width: 30px;
+    max-height: 30px;
+}
+.link {
+    color: $color-black;
+    margin-top:10px;
+}
+
+.logo-part {
+    display: flex;
+    align-items: center;
+}
+
+.logo-name {
+    font-size: 40px;
+}
+
+.logo-pic {
+    max-width: 90px;
+    max-height: 90px;
+}
+
+.paper__content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.popper-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $color-white;
+    top: -10px;
+    right: 12px;
+    transform: translateX(-50%);
+}
+
+.layoutNavBlock {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.layoutButtonText {
+    color: $color-white;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid $color-white;
+    text-decoration: 'none';
+    cursor: 'pointer';
+}
+
+.layoutButtonText:hover {
+    color: #d0d0d0;
+    border: 1px solid #d0d0d0;
+}
+
+.layoutSelectLanguage {
+    background-color: $color-white;
+    margin-right: 10px;
+}
+.btnAuth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+#simple-select-label {
+    color: $color-black;
+    font-size: 19px;
+}
+
+.mainTitleBlock > a {
+    color: $color-white;
+}
+
+.welcome-text {
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 950px) {
+    
+}
+
+@media (max-width: 600px) {
+    .mainTitleBlock {
+        display: flex;
+        width: 200px;
+        justify-content: center;
+        align-items: center;
+    }
+    .mainTitleBlock >a>h1 {
+        color: $color-white;
+        font-size: 32px;
+    }
+    .layoutSelectLanguage>div {
+        padding: 5px;
+        margin: 0;
+    }
+    .layoutButtonText {
+        color: $color-black;
+        border: 1px solid $color-black;
+    }
+}

@@ -1,0 +1,12 @@
+.env
+.env.*
+
+node_modules
+
+dist
+build
+
+.idea
+.vscode
+
+.DS_Store

@@ -1,0 +1,50 @@
+@import '@/assets/scss/colors.scss';
+
+.notification {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 12px;
+    color: black;
+    padding: 20px;
+    .notification__flex {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .notification__icon {
+            display: flex;
+            align-items: center;
+        }
+        .notification__icon svg {
+            width: 30px;
+            height: 30px;
+        }
+        .notification__content {
+            p {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 40vw;    
+            }
+        }
+    }
+    .notification__check {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        word-break: break-word;
+        .notification__check-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        button {
+            margin-top: 10px;
+            background-color: $color-primary-lower;
+            color: white;
+        }
+    }
+}
+
+.sourceLink {
+    color: $color-black;
+}

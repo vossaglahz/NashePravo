@@ -1,0 +1,33 @@
+.messageCard {
+    display: flex;
+    min-width: 200px;
+    max-width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    &__text {
+    padding: 10px 20px;
+    display: flex;
+        border: 1px solid  lightgray;
+        margin-left: 20px;
+        border-radius: 15px;
+        flex-direction: column;
+    }
+    &__name {
+        color: black;
+    }
+    &__message {
+        color: black;
+        word-break: break-all;
+    }
+    &__time {
+        color: black;
+        font-size: 12px;
+    }
+    &__img {
+        width: 50px;
+        margin-left: 20px;
+        height: 50px;
+        border-radius: 50px;
+    }
+    
+}

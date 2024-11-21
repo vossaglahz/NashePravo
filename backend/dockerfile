@@ -1,0 +1,20 @@
+FROM node:lts
+
+WORKDIR /app
+
+RUN wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz \
+  && tar -C /usr/local/bin -xzf dockerize-linux-amd64-v0.6.1.tar.gz \
+  && rm dockerize-linux-amd64-v0.6.1.tar.gz
+
+COPY package*.json ./
+
+RUN yarn install
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["sh", "-c", "\
+  dockerize -wait tcp://db:5432 -timeout 60s && \
+  npm run dev\
+  "]

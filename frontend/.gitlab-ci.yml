@@ -1,0 +1,25 @@
+stages:
+  - build
+  - deploy
+
+
+build:
+  stage: build
+  script:
+    - docker build -t esdp_client .  # Start new versions of services
+  only:
+    - main
+
+deploy:
+  before_script:
+  - echo " VITE_API_BASE_URL=$ VITE_API_BASE_URL" > .env
+  - echo "VITE_API_BACK=$VITE_API_BACK" >> .env
+  stage: deploy
+  environment: production
+  script:
+    - docker stop front
+    - docker rm front
+    - docker run -d -p 8080:8080 -e VITE_API_BACK=http://209.38.211.14:8000 --name front esdp_client
+
+  only:
+    - main

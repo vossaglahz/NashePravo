@@ -1,0 +1,17 @@
+@import '@/assets/scss/colors.scss';
+
+.panelLayout {
+    background-color: $color-background;
+    min-height: 100vh;
+}
+
+.panel__wrapper {
+    display: flex;
+    padding: 50px 0;
+    gap: 50px;
+    flex-direction: column
+}
+
+.panel__outlet {
+    height: 50%;
+}

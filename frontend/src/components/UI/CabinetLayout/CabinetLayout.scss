@@ -1,0 +1,17 @@
+@import '@/assets/scss/colors.scss';
+
+.cabinetLayout {
+    background-color: $color-background;
+    min-height: 100vh;
+}
+
+.cabinet__wrapper {
+    display: flex;
+    padding: 50px 0;
+    gap: 50px;
+}
+
+.cabinet__outlet {
+    width: 70%;
+    height: 50%;
+}

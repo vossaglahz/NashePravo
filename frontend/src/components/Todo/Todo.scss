@@ -1,0 +1,111 @@
+.todo {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+
+    &__block {
+        width: 500px;
+        padding: 20px;
+        color: black;
+        border-radius: 15px;
+        box-shadow: 3px 1px 20px black;
+        transition: box-shadow 0.3s ease-in-out;
+        
+        & h1 {
+            font-size: 30px;
+            text-align: center;
+            border-bottom: 1px solid gray;
+            padding-bottom: 10px;
+        }
+
+        &:hover {
+            box-shadow: 3px 1px 20px #888888;
+        }
+    }
+
+    &__CardBlock {
+        overflow-y: auto;
+        height: 480px;
+        padding: 10px;
+    }
+}
+
+.modalCreate {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 15px;
+    height: 200px;
+    justify-content: space-evenly;
+    background-color: white;
+    width: 500px;
+    margin: 20% auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+    & span {
+        text-align: center;
+        color: black;
+        font-size: 20px;
+    }
+    
+    @media (max-width: 600px) {
+        width: 80%;
+        margin: 20% 10%;
+    }
+}
+
+.buttonTodo {
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 20px;
+
+    Button {
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+}
+
+.todo__card {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    & h3 {
+        word-break: break-all;
+    }
+    &.dragging {
+        opacity: 0.5;
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 14px;
+        color: gray;
+    }
+
+    span {
+        font-size: 12px;
+        color: #888;
+    }
+}
+
+.todo__block.highlight {
+    background-color: #f0f8ff;
+    border: 2px solid #0056b3;
+}

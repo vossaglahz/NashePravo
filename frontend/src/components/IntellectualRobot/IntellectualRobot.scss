@@ -1,0 +1,244 @@
+@import '@/assets/scss/colors.scss';
+
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 83vh;
+}
+
+.chat-header {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: 20px 0;
+    box-shadow: 0px 20px 15px rgba(115, 115, 115, 0.2);
+    height: 130px;
+}
+
+.return__button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: $color-primary;
+    padding: 10px;
+    max-width: 350px;
+}
+
+.return__button:hover {
+    background-color: #7ea6d494;
+}
+
+.return__button-text {
+    font-size: 17px;
+    padding-left: 5px;
+    color: white;
+}
+
+.messages {
+    width: 100%;
+    overflow-y: auto;
+    padding-top: 30px;
+    flex-grow: 1;
+}
+
+.messages::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f4f4f4;
+    margin-right: 5px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #f4f4f4;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.messages::-webkit-scrollbar-track {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+.robot-chat-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.services-types {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.services-type-item {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: $color-primary;
+    border-radius: 15px;
+    border-bottom-left-radius: 0;
+    color: white;
+}
+
+.services-type-item.selected {
+    background-color: #0d2845;
+}
+
+.services-type-item:hover {
+    background-color: #315b8a;
+    border: 1px solid #0d2641;
+}
+
+.input-block {
+    display: flex;
+    align-items: center;
+}
+
+.chat-form__button {
+    border: none;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.chat-clean__button {
+    border: none;
+    background-color: white;
+    border-radius: 50px;
+    padding: 15px;
+    margin-left: 5px;
+}
+
+.chat-form__button:hover {
+    background-color: rgb(217 231 247);
+}
+
+.chat-clean__button:hover {
+    background-color: rgb(217 231 247);
+}
+
+.input-wrap {
+    width: 100%;
+    display: flex;
+    border-radius: 50px;
+    border: 1px solid $color-primary;
+    align-items: center;
+    overflow: hidden;
+    padding: 5px;
+    margin-top: 10px;
+    transition: height 0.2s;
+}
+
+.textAI {
+    width: 100%;
+    font-size: 16px;
+    border: 0;
+    outline: 0;
+    resize: none;
+    max-height: 300px;
+    overflow: visible;
+    background-color: white;
+    margin: 5px 0px 5px 0px;
+    color: #315b8a;
+}
+
+.input-wrap textarea::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f4f4f4;
+    margin-right: 5px;
+}
+
+.input-wrap textarea::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #f4f4f4;
+}
+
+.input-wrap textarea::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.input-wrap textarea::-webkit-scrollbar-track {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+.message-сard {
+    display: flex;
+    min-width: 200px;
+    max-width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.lds-ellipsis,
+.lds-ellipsis div {
+    box-sizing: border-box;
+}
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-ellipsis div {
+    position: absolute;
+    top: 33.33333px;
+    width: 13.33333px;
+    height: 13.33333px;
+    border-radius: 50%;
+    background: $color-primary;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+.docBtn {
+    background: none;
+    padding: 0;
+    color: white;
+    padding-left: 10px;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}

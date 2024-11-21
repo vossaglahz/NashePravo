@@ -1,0 +1,1051 @@
+swagger: "2.0"
+tags:
+  - name: "User"
+  - name: "Documents"
+  - name: "Admin"
+  - name: "Notification"
+  - name: "Ratings"
+info:
+  title: "Наше право API"
+  version: "2.0.0"
+host: "localhost:8000"
+basePath: "/"
+schemes:
+  - "http"
+securityDefinitions:
+  Bearer:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+    description: "Введите токен в формате: Bearer {token}"
+security:
+  - Bearer: []
+paths:
+  /users/registration:
+    post:
+      tags:
+        - "User"
+      parameters:
+        - name: "user"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/UserReg"
+      responses:
+        201:
+          description: "User registered successfully"
+          schema:
+            $ref: "#/definitions/UserResponse"
+        400:
+          description: "Invalid input"
+  /users/login:
+    post:
+      tags:
+        - "User"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/UserLogin"
+      responses:
+        200:
+          description: "Login successful"
+          schema:
+            $ref: "#/definitions/UserResponse"
+        401:
+          description: "Unauthorized"
+  /users/logout:
+    post:
+      tags:
+        - "User"
+      parameters:
+      - name: Authorization
+        description: "Access token"
+        in: headers
+        required: true
+        schema:
+            $ref: "#/definitions/UserReg"
+      responses:
+        200:
+          description: "User logged out successfully"
+        401:
+          description: "Unauthorized"
+  
+  /users/refresh:
+    post:
+      tags:
+        - "User"
+      parameters:
+      - name: Authorization
+        description: "Access token"
+        in: headers
+        required: true
+      responses:
+        200:
+          description: "User logged out successfully"
+          schema:
+            $ref: "#/definitions/usersAdminData"
+        401:
+          description: "Unauthorized"
+
+  /users/activate/{:activationLink}:
+    get:
+      tags:
+        - "User"
+      parameters:
+      - name: Authorization
+        description: "Access token"
+        in: headers
+        required: true
+      responses:
+        200:
+          description: "User logged out successfully"
+        401:
+          description: "Unauthorized"
+
+  /users/change-password:
+    put:
+      tags:
+        - "User"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: data
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              currentPassword:
+                type: string
+              newPassword:
+                type: string
+              confirmNewPassword:
+                type: string
+      responses:
+        201:
+          description: "successfully"
+          schema:
+            $ref: "#/definitions/UserResponse"
+        400:
+          description: "Invalid input"
+
+  /users/recover-password:
+    put:
+      tags:
+        - "User"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+      responses:
+        201:
+          description: "successfully"
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+        400:
+          description: "Invalid input"
+
+  /users/change-recover-password:
+    put:
+      tags:
+        - "User"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: data
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              newPassword:
+                type: string
+              confirmNewPassword:
+                type: string
+      responses:
+        201:
+          description: "successfully"
+          schema:
+            $ref: "#/definitions/UserResponse"
+        400:
+          description: "Invalid input"
+
+  /docs/:
+    post:
+      tags:
+        - "Documents"
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              image:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    src:
+                      type: string
+                    name:
+                      type: string
+              lawyerId:
+                type: string
+              id:
+                type: integer
+                format: int32
+              publish:
+                type: boolean
+      responses:
+        201:
+          description: "Документы успешно созданы"
+        403:
+          description: "Доступ запрещен"
+    get:
+      tags:
+        - "Documents"
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        201:
+          description: "Документы успешно созданы"
+          schema:
+            type: object
+            properties:
+              image:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    src:
+                      type: string
+                    name:
+                      type: string
+              lawyerId:
+                type: string
+              id:
+                type: integer
+                format: int32
+              publish:
+                type: boolean
+        403:
+          description: "Доступ запрещен"
+
+  /admin/users:
+    get:
+      tags:
+        - "Admin"
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+        - name: page
+          in: query
+          required: false
+          type: integer
+        - name: limit
+          in: query
+          required: false
+          type: integer
+        - name: sorted
+          in: query
+          required: false
+          type: string
+        - name: isActivatedByEmail
+          in: query
+          required: false
+          type: boolean
+        - name: isConfirmed
+          in: query
+          required: false
+          type: boolean
+        - name: role
+          in: query
+          required: false
+          type: string
+        - name: permanentBlock
+          in: query
+          required: false
+          type: boolean
+      responses:
+        201:
+          description: "User registered successfully"
+          schema:
+            $ref: "#/definitions/usersAdminResponse"
+        400:
+          description: "Invalid input"
+
+  /admin/request/all:
+    get:
+      tags:
+        - "Admin"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+      responses:
+        201:
+          description: "User registered successfully"
+          schema:
+            $ref: "#/definitions/RequestListResponse"
+        400:
+          description: "Invalid input"
+  
+  /notifications/general:
+    post:
+      tags:
+        - "Admin"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: targetAudience
+          in: query
+          required: false
+          type: string
+          enum: ["all", "lawyer", "user"]
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/AdminNotificationsItem"
+      responses:
+        200:
+          description: "Notification Created"
+        401:
+          description: "Unauthorized"
+
+  /users/admin/block:
+    post:
+      tags:
+        - "Admin"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: "data"
+          in: "body"
+          required: true
+          schema:
+              $ref: "#/definitions/UserBlock"
+      responses:
+        201:
+          description: "User registered successfully"
+          schema:
+            $ref: "#/definitions/UserBlockResponse"
+        400:
+          description: "Invalid input"
+
+  /users/admin/unblock:
+    post:
+      tags:
+        - "Admin"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: "data"
+          in: "body"
+          required: true
+          schema:
+              $ref: "#/definitions/UserUnblock"
+      responses:
+        201:
+          description: "User registered successfully"
+          schema:
+            $ref: "#/definitions/UserBlockResponse"
+        400:
+          description: "Invalid input"
+
+  /notification/count:
+    get:
+      tags:
+        - "Notification"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+      responses:
+        201:
+          schema:
+            $ref: "#/definitions/NotificationCount"
+        400:
+          description: "Invalid input"
+  
+  /notification/personal:
+    get:
+      tags:
+        - "Notification"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: page
+          in: query
+          required: false
+          type: integer
+        - name: limit
+          in: query
+          required: false
+          type: integer
+        - name: status
+          in: query
+          required: false
+          type: boolean
+        - name: role
+          in: query
+          required: false
+          type: string
+        - name: sorted
+          in: query
+          required: false
+          type: string
+      responses:
+        201:
+          schema:
+            $ref: "#/definitions/generalNotification"
+        400:
+          description: "Invalid input"
+    post:
+      tags:
+        - "Notification"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: data
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              content:
+                type: integer
+              topic:
+                type: string
+      responses:
+        201:
+          description: "Checked"
+        400:
+          description: "Invalid input"  
+  
+  /notification/general:
+    get:
+      tags:
+        - "Notification"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: page
+          in: query
+          required: false
+          type: integer
+        - name: limit
+          in: query
+          required: false
+          type: integer
+        - name: important
+          in: query
+          required: false
+          type: string
+        - name: sorted
+          in: query
+          required: false
+          type: string
+      responses:
+        201:
+          schema:
+            $ref: "#/definitions/generalNotification"
+        400:
+          description: "Invalid input"
+
+
+  /notification/personalMark:
+    put:
+      tags:
+        - "Notification"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: data
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              notificationId:
+                type: integer
+                format: int32
+      responses:
+        201:
+          description: "Checked"
+        400:
+          description: "Invalid input"
+  
+  /notification/generalMark:
+    put:
+      tags:
+        - "Notification"
+      parameters:
+        - name: Authorization
+          description: "Access token"
+          in: headers
+          required: true
+        - name: data
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              notificationId:
+                type: integer
+                format: int32
+      responses:
+        201:
+          description: "Checked"
+        400:
+          description: "Invalid input"
+
+  /ratings/{id}:
+    post:
+      tags:
+        - "Ratings"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: Authorization
+          in: header
+          required: true
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rating:
+                  type: integer
+                  format: int32
+                comment:
+                  type: string
+      responses:
+        201:
+          schema:
+            $ref: "#/definitions/RatingResponse"
+        400:
+          description: "Неверный ввод"
+    get:
+      tags:
+        - "Ratings"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          schema:
+            $ref: "#/definitions/RatingResponse"
+        404:
+          description: "Рейтинг не найден"
+
+  paths:
+  /todo:
+    get:
+      tags:
+        - "ToDoList"
+      summary: "Получить список задач"
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          description: "Access token"
+      responses:
+        200:
+          description: "Успешное получение списка задач"
+          schema:
+            $ref: "#/definitions/ToDoListResponse"
+        401:
+          description: "Неавторизован"
+    
+    post:
+      tags:
+        - "ToDoList"
+      summary: "Создать новую задачу"
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          description: "Access token"
+          in: headers
+          required: true
+        - name: "data"
+          in: "body"
+          required: true
+          schema:
+              $ref: "#/definitions/ToDoListCreateRequest"
+      responses:
+        201:
+          description: "Задача успешно создана"
+          schema:
+            $ref: "#/definitions/ToDoListResponse"
+        400:
+          description: "Неверный ввод данных"
+        401:
+          description: "Неавторизован"
+  
+  /todo/{id}:
+    patch:
+      tags:
+        - "ToDoList"
+      summary: "Изменить статус задачи"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: "Authorization"
+          in: header
+          required: true
+          description: "Access token"
+          in: headers
+          required: true
+        - name: "data"
+          in: "body"
+          required: true
+          schema:
+              $ref: "#/definitions/ToDoListUpdateRequest"
+      responses:
+        200:
+          description: "Задача успешно обновлена"
+          schema:
+            $ref: "#/definitions/ToDoListUpdateResponse"
+        400:
+          description: "Неверный ввод данных"
+        500:
+          description: "Задача не найдена или у вас нет прав на её изменение"
+        401:
+          description: "Неавторизован"
+
+    delete:
+      tags:
+        - "ToDoList"
+      summary: "Удалить задачу"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: true
+          description: "Access token"
+          in: headers
+          required: true
+      responses:
+        200:
+          description: "Задача успешно удалена"
+        500:
+          description: "Задача не найдена или у вас нет прав на её удаление"
+        401:
+          description: "Неавторизован"
+
+definitions:
+  UserReg:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      surname:
+        type: "string"
+      email:
+        type: "string"
+        format: "email"
+      password:
+        type: "string"
+    required:
+      - username
+      - email
+      - password
+  UserResponse:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int32"
+      name:
+        type: "string"
+      surname:
+        type: "string"
+      email:
+        type: "string"
+        format: "email"
+      password:
+        type: "string"
+      patronymicName:
+        type: "string"
+        nullable: true
+      photo:
+        type: "string"
+        nullable: true
+      lawyerType:
+        type: "string"
+        nullable: true
+      caseCategories:
+        type: "array"
+        items:
+          type: "string"
+        nullable: true
+      isActivatedByEmail:
+        type: "boolean"
+      isConfirmed:
+        type: "boolean"
+      activationLink:
+        type: "string"
+      refreshToken:
+        type: "string"
+      accessToken:
+        type: "string"
+      role:
+        type: "string"
+      dateBlocked:
+        type: "string"
+        format: "date-time"
+        nullable: true
+      permanentBlocked:
+        type: "boolean"
+      city:
+        type: "string"
+        nullable: true
+      about:
+        type: "string"
+        nullable: true
+      viewedNotifications:
+        type: "string"
+      averRating:
+        type: "number"
+        format: "float"
+      rating:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            id:
+              type: "integer"
+              format: "int32"
+            description:
+              type: "string"
+            assessment:
+              type: "integer"
+              format: "int32"
+            createdAt:
+              type: "string"
+              format: "date-time"
+
+  UserLogin:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        format: "email"
+      password:
+        type: "string"
+  GetPublishDocument:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        format: "email"
+      password:
+        type: "string"
+  UserBlockResponse:
+    type: "object"
+    properties:
+      success:
+          type: "boolean"
+          example: "false"
+      message:
+        type: "string"
+  UserBlock:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      role:
+        type: "string"
+        enum: ["user", "lawyer"] 
+      permanentBlocked:
+        type: "boolean"
+        description: "Пользователь заблокирован навсегда"
+        example: false
+      dateBlocked:
+        type: "string"
+        format: "date-time"
+        description: "Дата последнего изменения"
+        example: "2024-10-08T00:00:00Z"
+    responses:
+        200:
+          description: "Пользователь заблокирован"
+          schema:
+            $ref: "#/definitions/UserBlockResponse"
+  UserUnblock:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      role:
+        type: "string"
+        enum: ["user", "lawyer"] 
+    responses:
+        200:
+          schema:
+            $ref: "#/definitions/UserBlockResponse"
+  usersAdminData:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      surname:
+        type: "string"
+      email:
+        type: "string"
+        format: "email"
+      password:
+        type: "string"
+      patronymicName:
+        type: "string"
+        nullable: true
+      photo:
+        type: "string"
+        nullable: true
+      avgRating:
+        type: "number"
+        format: "float"
+      isActivatedByEmail:
+        type: "boolean"
+      activationLink:
+        type: "string"
+      refreshToken:
+        type: "string"
+      accessToken:
+        type: "string"
+      role:
+        type: "string"
+        enum: ["user", "lawyer", "admin"]
+      dateBlocked:
+        type: "string"
+        format: "date-time"
+        nullable: true
+      permanentBlocked:
+        type: "boolean"
+      viewedNotifications:
+        type: "string"
+  usersAdminResponse:
+    type: "array"
+    items:
+      $ref: "#/definitions/usersAdminData"
+  RequestItem:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      type:
+        type: "string"
+      data:
+        type: "object"
+        properties:
+          name:
+            type: "string"
+          surname:
+            type: "string"
+          patronymicName:
+            type: "string"
+          lawyerType:
+            type: "string"
+          caseCategories:
+            type: "string"
+          photo:
+            type: "string"
+      isApproved:
+        type: "boolean"
+      createdAt:
+        type: "string"
+        format: "date-time"
+      approvedAt:
+        type: "string"
+        format: "date-time"
+        nullable: true
+  AdminNotificationsItem:
+    type: "object"
+    properties:
+      topic:
+        type: "string"
+        example: "1232"
+      content:
+        type: "string"
+        example: "sss"
+      important:
+        type: "boolean"
+        example: false
+      targetAudience:
+        type: "string"
+        description: "Целевая аудитория"
+        example: "all"
+    required:
+      - topic
+      - content
+      - important
+      - targetAudience
+  RequestListResponse:
+    type: "array"
+    items:
+      $ref: "#/definitions/RequestItem"
+  NotificationCount:
+    type: "object"
+    properties:
+      unreadPersonalCount:
+        type: "integer"
+        format: "int32"
+        example: 0
+      unreadGeneralCount:
+        type: "integer"
+        format: "int32"
+        example: 22
+      totalUnreadCount:
+        type: "integer"
+        format: "int32"
+        example: 22
+    required:
+      - unreadPersonalCount
+      - unreadGeneralCount
+      - totalUnreadCount
+  generalNotification:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int32"
+      topic:
+        type: "string"
+      content:
+        type: "string"
+      important:
+        type: "boolean"
+      role:
+        type: "string"
+      _createdAt:
+        type: "string"
+        format: "date-time"
+  MessageList:
+    type: "array"
+    items:
+      $ref: "#/components/schemas/Message"
+  RatingResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      assessment:
+        type: integer
+        format: int32
+      description:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+
+  ToDoListCreateRequest:
+    type: "object"
+    properties:
+      text:
+        type: "string"
+        example: "Суд в Медеуском районе"
+    required:
+      - text
+
+  ToDoListUpdateRequest:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+        example: "Process"
+    required:
+      - text
+
+  ToDoListResponse:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+        example: "1"
+      title:
+        type: "string"
+        example: "Суд в Медеуском районе"
+      status:
+        type: "string"
+        example: "Doing"
+      createdAt:
+        type: "string"
+        format: "date-time"
+        example: "2024-10-08T00:00:00Z"
+
+  ToDoListUpdateResponse:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+        example: "1"
+      title:
+        type: "string"
+        example: "Суд в Медеуском районе"
+      status:
+        type: "string"
+        example: "Process"
+      createdAt:
+        type: "string"
+        format: "date-time"
+        example: "2024-10-08T00:00:00Z"
+

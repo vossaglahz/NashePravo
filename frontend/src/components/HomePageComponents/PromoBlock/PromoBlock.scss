@@ -1,0 +1,48 @@
+@import '@/assets/scss/colors.scss';
+
+.promo-block-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.promo-block-img {
+    width: 700px;
+    img {
+        width: 100%;
+    }
+}
+
+.promo-block-description {
+    margin-left: 50px;
+    color: $color-primary;
+}
+
+.promo-block-description h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+@media (max-width: 600px) {
+    .promo-block-wrapper  {
+        width: 300px;
+        margin: 0;
+        justify-content: flex-start;
+    }
+    .promo-block-img {
+        width: 100px;
+        img {
+            width: 93px;
+        }
+    }
+    .promo-block-description {
+        h2 {
+            hyphens: auto;
+            width: 200px;
+            font-size: 15px;
+            text-align: left;
+        }
+    }
+}

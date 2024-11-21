@@ -1,0 +1,67 @@
+@import '@/assets/scss/colors.scss';
+
+@import '@/assets/scss/variables.scss'; 
+
+.card-component,
+.for-who-page-card-component {
+    @include card-styles;
+    @include card-hover-effect;
+}
+
+
+.card-component-title,
+.for-who-page-card-title {
+    @include card-title-styles;
+}
+
+.card-component-description,
+.for-who-page-card-description {
+    @include card-description-styles;
+}
+
+.for-who-page-card-component {
+    width: 350px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+    cursor: pointer;
+}
+
+.for-who-page-card-component:hover {
+    background-color: #175ba932;
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.for-who-page-card-description {
+    hyphens: auto;
+}
+
+@media (max-width: 950px) {
+    .card-component-title {
+        font-size: 20px !important;
+    }
+
+    .for-who-page-card-component {
+        width: 100%;
+        height: 270px;
+        padding: 10px;
+        margin: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-component {
+        max-height: 260px;
+        margin-bottom: 30px;
+    }
+
+    .card-component-title,
+    .for-who-page-card-title {
+        font-size: 20px !important;
+        height: 80px !important;
+    }
+
+    .card-component-description,
+    .for-who-page-card-description {
+        font-size: 13px !important;
+        padding-top: 6px !important;
+    }
+}

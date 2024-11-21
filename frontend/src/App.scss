@@ -1,0 +1,16 @@
+@import '@/assets/scss/colors.scss';
+
+.main_page {
+    min-height: 280;
+    padding: 24;
+    height: 780px;
+}
+
+.login-text {
+    background-color: $color-primary;
+    margin: 0 auto;
+}
+
+.admin-Text {
+    color: #595454;
+}

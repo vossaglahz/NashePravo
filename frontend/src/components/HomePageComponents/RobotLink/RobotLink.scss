@@ -1,0 +1,54 @@
+@import '@/assets/scss/colors.scss';
+
+.chat-logo {
+    cursor: pointer;
+    position: fixed;
+    bottom: 80px;
+    right: 50px;
+    z-index: 1;
+}
+
+@keyframes bobbing {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+}
+  
+.logo-robot {
+    width: 65px;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.logo-robot.animated {
+    animation: bobbing 0.8s ease-in-out 0s infinite; 
+}
+
+.links-component {
+    position: fixed;
+    bottom: 150px;
+    right: 130px;
+    z-index: 1;
+}
+  
+.chat-logo:hover .logo-robot {
+    transform: translateY(-10) scale(1.2); 
+    width: 78px;
+}
+
+.chat-robot-link, .lawyer-page-link {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-radius: 25px;
+    background-color: $color-primary;
+    color: white;
+    font-size: 17px;
+}
+
+.chat-robot-link:hover, .lawyer-page-link:hover {
+    background-color: #315b8a;
+    border: 1px solid #0d2641;
+}

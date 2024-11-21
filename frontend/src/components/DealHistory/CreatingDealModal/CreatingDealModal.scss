@@ -1,0 +1,50 @@
+@import '@/assets/scss/colors.scss';
+
+.modal {
+    padding: 10px;
+}
+
+.input-title {
+    color: #3f3f3f;
+    margin-bottom: 5px;
+}
+
+.input-title span {
+    color: $color-red;
+}
+
+.description-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    max-height: 120px;
+}
+
+.description-textarea:focus {
+    border: 2px solid #077ecd;
+    outline: #077ecd;
+}
+
+.grid-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deal-type-select {
+    width: 200px;
+}
+
+.price-checkbox {
+    color: #3f3f3f;
+    margin-top: 40px;
+    margin-left: 15px;
+}
+
+.create-deal-button {
+    width: 260px;
+    float: right;
+    margin-top: 25px !important;
+    padding: 10px !important;
+    border-radius: 7px !important;
+    background-color: $color-primary !important;
+}

@@ -1,0 +1,87 @@
+.lawyerDetail {
+    color: black;
+    margin: 50px auto 100px;
+    img {
+        width: 200px;
+        height: 200px;
+    }
+    .image__full-name {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+    .lawyer__data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+    }
+    h2 {
+        margin: 20px 0;
+    }
+    .around {
+        color: red;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid red;
+    }
+    .ratings-each {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 50px 0;
+    }
+    .ratings-each {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .rating-row {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .user__review-wrap {
+        display: flex;
+        gap: 20px;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        background-color: #fff;
+    }
+
+    .user__review {
+        .user__review-photo img {
+            width: 100px;
+            height: 100px;
+        }
+        .user__review-photo {
+            text-align: center;
+        }
+
+        .user__review-comment {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            p {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    }
+
+    .image__full-name img,
+    .user__review-photo img {
+        border-radius: 50%;
+    }
+}

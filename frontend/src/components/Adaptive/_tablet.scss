@@ -1,0 +1,114 @@
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        max-width: 85%;
+    }
+    .cabinet__wrapper {
+        flex-direction: column;
+    }
+    .cabinetAside,
+    .panelAside {
+        width: 100%;
+        .container {
+            margin: 0;
+            max-width: 100%;
+        }
+        ul {
+            display: flex;
+            overflow-x: auto;
+            a {
+                white-space: nowrap;
+                color: rgb(38, 136, 235);
+                gap: 0;
+                &:hover {
+                    background-color: rgba(246, 246, 247);
+                }
+            }
+        }
+        .active {
+            background-color: #ffffff !important;
+            border: 1px solid #d7d8d9;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        svg {
+            display: none;
+        }
+    }
+    .cabinet__outlet {
+        width: 100%;
+    }
+    .logo-name {
+        font-size: 25px;
+    }
+    .logo-pic {
+        max-width: 50px;
+    }
+    .btnAuth {
+        gap: 10px;
+    }
+    .MuiSelect-select {
+        width: 35px;
+    }
+    .mainTitleBlock {
+        display: flex;
+        align-items: center;
+    }
+    .MuiListItem-root {
+        gap: 10px;
+    }
+
+    .profile__info-content p {
+        width: 25%;
+    }
+
+    .adminControllers {
+        overflow-x: auto;
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .panelAside {
+        .container {
+            margin: 0 !important;
+            max-width: 100%;
+        }
+        a {
+            white-space: nowrap;
+        }
+        .oneControl {
+            min-width: fit-content;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .lawyer__list .lawyer__card {
+        width: 70%;
+    }
+
+    .deal-card-content {
+        width: 100%;
+        height: 100%;
+        background-color: transparent !important;
+    }
+
+    .deal-history-card:hover {
+        background-color: rgba(23, 91, 169, 0.1960784314) !important;
+    }
+
+    .css-hxl34y {
+        width: 80% !important;
+        .css-1fzlhpv-MuiGrid2-root {
+            flex-wrap: wrap;
+        }
+    }
+
+    .notification__content {
+        p {
+            max-width: 75vw !important;
+        }
+    }
+}

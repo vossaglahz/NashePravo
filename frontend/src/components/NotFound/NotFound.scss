@@ -1,0 +1,20 @@
+.notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    background-color: #f0f0f0;
+    gap: 20px;
+
+    &::before {
+        content: "404";
+        display: block;
+        font-size: 5rem;
+        font-weight: bold;
+        color: #888;
+        margin-bottom: 10px;
+    }
+}

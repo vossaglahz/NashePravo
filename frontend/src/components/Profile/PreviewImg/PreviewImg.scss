@@ -1,0 +1,40 @@
+.previewImg {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100px;
+}
+
+.previewImg button {
+    width: 100%;
+}
+
+.previewImg {
+    a {
+        color: black;
+        svg {
+            fill: black;
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    &:hover a,
+    a:hover {
+        color: rgb(48, 129, 239);
+
+        svg {
+            fill: rgb(48, 129, 239);
+        }
+    }
+    .previewImg__name {
+        width: 100px;
+        max-height: 50px;
+        overflow: hidden;
+        word-break: break-all;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+    }
+}

@@ -1,0 +1,43 @@
+@import '@/assets/scss/colors.scss';
+
+.notifications {
+    color: $color-black;
+    height: 38vh;
+}
+
+.filter {
+    color: $color-black;
+}
+
+.notify_card {
+    background-color: $color-white;
+    color: $color-black;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+
+.formSelectMenu {
+    width: 100px;
+    margin-top: 8px !important;
+    margin-right: 5px !important;
+}
+
+.noneNotify {
+    margin-top: 100px;
+    text-align: center;
+    color: black;
+    svg {
+        width: 100px;
+        height: 100px;
+    }
+    p {
+        margin-top: 50px;
+    }
+}
+
+.notifications__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}

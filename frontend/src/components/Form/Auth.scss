@@ -1,0 +1,36 @@
+@import '@/assets/scss/colors.scss';
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    height: 90vh;
+    gap: 40px;
+    margin: 0 auto;
+};
+.buttonLog {
+    background-color: $color-primary !important;
+}
+.logName {
+    margin-bottom: 10px;
+    color: $color-primary;
+}
+.regButton {
+    background-color: $color-primary !important;
+}
+.regName {
+    color: $color-primary;
+}
+
+.rules {
+    margin-top: 0px;
+    color: $color-black;
+    text-align: center;
+}
+
+.checkboxAlert {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+}

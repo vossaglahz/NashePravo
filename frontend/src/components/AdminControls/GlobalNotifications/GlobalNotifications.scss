@@ -1,0 +1,26 @@
+@import '@/assets/scss/colors.scss';
+
+
+.notificationsForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    margin: 0 auto;
+};
+.buttonGlobNot {
+    background-color: $color-primary !important;
+}
+
+.typeNotification {
+    display: flex;
+    justify-content: space-evenly;
+
+    &__label {
+        color: black;
+        
+    }
+}
+.typeNotification__label {
+    color: $color-primary;
+}

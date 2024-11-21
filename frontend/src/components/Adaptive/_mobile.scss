@@ -1,0 +1,374 @@
+@media (max-width: 767px) {
+    .container {
+        max-width: 85%;
+    }
+    .cabinet__wrapper {
+        flex-direction: column;
+    }
+    .cabinetAside,
+    .panelAside {
+        width: 100%;
+        .container {
+            margin: 0;
+            max-width: 100%;
+        }
+        ul {
+            display: flex;
+            overflow-x: auto;
+            a {
+                white-space: nowrap;
+                color: rgb(38, 136, 235);
+                gap: 0;
+                font-size: clamp(0.75rem, 0.402rem + 1.74vw, 1.25rem);
+                &:hover {
+                    background-color: (246, 246, 247);
+                }
+            }
+        }
+        .active {
+            background-color: #ffffff !important;
+            border: 1px solid #d7d8d9;
+        }
+        svg {
+            display: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .cabinet__outlet {
+        width: 100%;
+    }
+    .logo-name {
+        font-size: 25px;
+    }
+    .logo-pic {
+        max-width: 50px;
+    }
+    .btnAuth {
+        gap: 10px;
+    }
+    .MuiSelect-select {
+        width: 35px;
+    }
+    .mainTitleBlock {
+        display: flex;
+        align-items: center;
+    }
+    .MuiListItem-root {
+        gap: 10px;
+    }
+
+    .profile__info {
+        flex-direction: column;
+        .profile__info-inner {
+            text-align: center;
+        }
+    }
+
+    .profile__types {
+        flex-direction: column;
+        display: block;
+    }
+
+    .profile__info-content > label {
+        flex-wrap: wrap;
+    }
+
+    .profile__types-lawyer {
+        float: left;
+    }
+
+    .profile__info-content p {
+        width: 100%;
+    }
+
+    .box__modal {
+        width: 80% !important;
+    }
+
+    .css-9kdwf7-MuiFormControl-root {
+        width: 100%;
+    }
+
+    .profile__inner {
+        padding: 20px;
+    }
+
+    .css-en26x6-MuiStack-root {
+        margin-right: 0;
+    }
+
+    .formSelect-datePicker {
+        margin-right: 0;
+    }
+
+    .deal-history {
+        .formSelectMenu {
+            width: 100%;
+        }
+    }
+
+    .filter {
+        .MuiBox-root {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    .lawyer__list .lawyer__card {
+        width: 90%;
+    }
+
+    .lawyer__list .lawyer__card .lawyer__card-header img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .lawyer__card-header > div:first-child {
+        width: 20%;
+    }
+
+    .lawyer__card {
+        font-size: clamp(0.625rem, 0.267rem + 1.79vw, 1.125rem);
+        white-space: nowrap;
+    }
+
+    .lawyer__card-header {
+        gap: 20px !important;
+    }
+
+    .lawyer__list .lawyer__card .lawyer__card-main a {
+        margin: 0;
+    }
+
+    .deal-card-actions {
+        right: 0;
+        display: flex;
+        position: static;
+        width: 100%;
+    }
+
+    .deal-history-card {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .ratings-each {
+        gap: 20px !important;
+        font-size: clamp(0.625rem, -0.27rem + 4.47vw, 1.875rem);
+        margin: 20px 0 !important;
+        h1 {
+            padding: 20px;
+        }
+        .MuiRating-readOnly {
+            font-size: clamp(0.625rem, -0.27rem + 4.47vw, 1.875rem) !important;
+        }
+    }
+
+    .rating-row p {
+        font-size: clamp(0.625rem, 0.357rem + 1.34vw, 1rem) !important;
+    }
+
+    .image__full-name {
+        flex-wrap: wrap;
+    }
+
+    .changePassword h3 {
+        margin: 20px 0;
+    }
+
+    .numbers {
+        padding: 5px;
+        input {
+            width: 35px !important;
+            height: 35px !important;
+        }
+    }
+
+    .css-j791vp-MuiTypography-root {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+    }
+
+    .containerPicker {
+        flex-direction: column;
+    }
+
+    .panelAside {
+        width: 100%;
+        .container {
+            margin: 0;
+        }
+        ul {
+            display: flex;
+            overflow-x: auto;
+            li {
+                a {
+                    white-space: nowrap;
+                    color: rgb(38, 136, 235);
+                    gap: 0;
+                    font-size: clamp(0.75rem, 0.402rem + 1.74vw, 1.25rem);
+                    &:hover {
+                        background-color: (246, 246, 247);
+                    }
+                }
+            }
+        }
+    }
+
+    .panelAside {
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .css-9kdwf7-MuiFormControl-root {
+        width: 100% !important;
+    }
+
+    .deal-history-card .deal-card-actions .adminPanelBtn {
+        min-width: auto !important;
+    }
+
+    .formSelect {
+        max-width: 100%;
+        .css-en26x6-MuiStack-root > .MuiTextField-root,
+        .css-en26x6-MuiStack-root > .MuiPickersTextField-root {
+            min-width: 100% !important;
+        }
+        .MuiStack-root {
+            width: 100% !important;
+        }
+    }
+
+    .css-en26x6-MuiStack-root {
+        max-width: 100% !important;
+    }
+
+    .css-1q4nm6f-MuiCardActions-root {
+        flex-wrap: wrap;
+        gap: 10px;
+        button {
+            margin-left: 0px !important;
+            white-space: nowrap;
+        }
+    }
+    .css-hxl34y {
+        width: 80% !important;
+        .css-1fzlhpv-MuiGrid2-root {
+            flex-wrap: wrap;
+        }
+    }
+
+    .modal {
+        height: 95%;
+    }
+
+    .css-1fzlhpv-MuiGrid2-root {
+        .create-deal-button {
+            width: 50%;
+        }
+    }
+
+    .user__review-wrap {
+        flex-direction: column;
+        .user__review-photo {
+            margin: 0 auto;
+        }
+    }
+
+    .lawyerDetail .around {
+        font-size: 2em;
+        width: initial;
+        height: initial;
+    }
+
+    .deal-button {
+        text-indent: 0 !important;
+    }
+    .css-6wsdc3-MuiButtonBase-root-MuiButton-root {
+        min-width: auto !important;
+    }
+    .notification__check button {
+        font-size: clamp(0.75rem, 0.571rem + 0.89vw, 1rem) !important;
+    }
+
+    .notification__content {
+        p {
+            max-width: 60vw !important;
+        }
+    }
+
+    .ratings h1 {
+        font-size: 1.5em;
+    }
+
+    .ratings_table {
+        p,
+        a {
+            font-size: clamp(0.75rem, 0.571rem + 0.89vw, 1rem) !important;
+        }
+        .ratings_table-cell {
+            span {
+                font-size: clamp(0.625rem, -0.27rem + 4.47vw, 1.875rem) !important;
+            }
+        }
+    }
+
+    .empty-show {
+        img {
+            max-width: 80%;
+        }
+    }
+
+    .services-types {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .services-types::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .services-types::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .services-types::-webkit-scrollbar-thumb {
+        background-color: #4c75a3;
+        border-radius: 10px;
+    }
+
+    .services-types::-webkit-scrollbar-thumb:hover {
+        background-color: #3b5a82;
+    }
+
+    .faq_title {
+        font-size: clamp(1.25rem, 1.027rem + 1.12vw, 1.563rem) !important;
+    }
+
+    .modal {
+        width: 80% !important;
+        height: 80%;
+    }
+
+    .authForm {
+        gap: 10px;
+        height: 100vh;
+        padding: 5px;
+    }
+
+    .promo-block-description {
+        margin-left: 10px;
+    }
+
+    .card-component, .for-who-page-card-component {
+        margin: 10px;
+        box-shadow: 2px 0px 10px grey !important;
+    }
+}
